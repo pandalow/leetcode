@@ -16,3 +16,5 @@
 
 [**138. Copy List with Random Pointer**](Linked%20List%2019a1da7520e3806f99d3f5033aed26cb/138%20Copy%20List%20with%20Random%20Pointer%201a41da7520e38066a2d3ca75e69c6060.md)
 
+
+[19.Remove Nth Node From end of the list](Linked%20List%2019a1da7520e3806f99d3f5033aed26cb/19.%20Remove%20Nth%20Node%20From%20End%20of%20List.md)
