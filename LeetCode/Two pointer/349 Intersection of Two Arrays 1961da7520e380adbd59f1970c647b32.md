@@ -76,3 +76,34 @@ Explanation: [4,9] is also accepted.
         3. 逐步推进, 达成遍历两个数组的情况
     2. 最简单的方法其实是用set()
         1. 把两个都进set, 比较是否有相同的值
+
+
+
+#### Solution 2 hashmap
+
+本质是第一个创建两个个hashset, 用hashmap的方式, 然后第二个去查一下第一个的重复数字就行了
+O(2n)
+
+```python
+class Solution(object):
+    def intersection(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[int]
+        """
+        hm = {}
+        data = []
+        hm2 = {}
+        for item in nums1:
+            if item not in hm:
+                hm[item] = item
+        
+        for item in nums2:
+            if item in hm:
+                if item not in hm2:
+                    hm2[item] = item
+                    data.append(item)
+
+        return data
+```
