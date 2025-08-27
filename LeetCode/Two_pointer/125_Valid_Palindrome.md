@@ -72,3 +72,23 @@ Since an empty string reads the same forward and backward, it is a palindrome.
     核心是 .isalnum()的方法, 可以识别是否为字母表中单词, 不是的话直接跳过
     
     其他部分用双指针很简单
+
+
+
+#### Solution 2:
+```python
+class Solution(object):
+    def isPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+
+        ## 转换成小写的句子
+        s = "".join(c.lower() for c in s if c.isalnum())
+
+        for i in range(len(s)//2):
+            if s[i] != s[-(i+1)]:
+                return False
+        return True
+```
