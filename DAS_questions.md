@@ -32,7 +32,13 @@
 最坏情况是每一趟比较都在模式串的最后遇到了字符不匹配的情况，每轮比较需要进行 m 次字符对比，总共需要进行 n-m+1 轮比较，总的比较次数为 m * (n-m+1)。所以 BF 算法的最坏时间复杂度为 m * n。
 
 [28](LeetCode/String/28_Find_the_Index_of_the_First_Occurrence in a String.md)
+[796](LeetCode/String/796_Rotate_String.md)
+
 
 #### KMP算法
 https://www.youtube.com/watch?v=V5-7GzOfADQ
 [459](LeetCode/String/459_Repeated_Substring_Pattern.md)
+
+#### 字典树
+
+[208](LeetCode/String/208_Implement_Trie_(Prefix_Tree).md)
