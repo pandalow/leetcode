@@ -42,3 +42,15 @@ https://www.youtube.com/watch?v=V5-7GzOfADQ
 #### 字典树
 
 [208](LeetCode/String/208_Implement_Trie_(Prefix_Tree).md)
+
+
+### Tree
+[144](https://leetcode.com/problems/binary-tree-preorder-traversal/)
+[94](https://leetcode.com/problems/binary-tree-inorder-traversal/)
+[145](https://leetcode.com/problems/binary-tree-postorder-traversal/)
+[102](https://leetcode.com/problems/binary-tree-level-order-traversal/)
+
+#### Recursion
+[104](https://leetcode.com/problems/maximum-depth-of-binary-tree/description/);
+[递归3步](LeetCode/递归3步.md)
+[112](https://leetcode.com/problems/path-sum/description/)
