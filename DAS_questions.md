@@ -54,3 +54,18 @@ https://www.youtube.com/watch?v=V5-7GzOfADQ
 [104](https://leetcode.com/problems/maximum-depth-of-binary-tree/description/);
 [递归3步](LeetCode/递归3步.md)
 [112](https://leetcode.com/problems/path-sum/description/)
+
+
+### BST
+[700](https://leetcode.com/problems/search-in-a-binary-search-tree/)
+[701](https://leetcode.com/problems/insert-into-a-binary-search-tree/submissions/1771680311/)
+所有的插入操作都会将该结点放入BST中的叶子结点, 从不进行重新的安排操作
+[450](https://leetcode.com/problems/delete-node-in-a-bst/description/)
+三种情况,
+1. 无叶子结点, 返回null
+2. 有左/右叶子结点, 直接返回下一个左结点,右结点
+3. 两边都有, 找到右边最小值, 复制到当前结点, 删除最小值.自然成立.(因为右边最小值必然比左边都大,又右边的其他值都笑, 不需要调整结点顺序,就可以承担当前结点功能)
+
+https://www.youtube.com/watch?v=wcIRPqTR3Kc&t=2s
+
+[98](https://leetcode.com/problems/validate-binary-search-tree/description/)
