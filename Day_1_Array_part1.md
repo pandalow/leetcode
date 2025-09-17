@@ -25,3 +25,11 @@
     最后 slow 就是新数组的长度。
 
 
+[Squares of a Sorted Array 977](https://leetcode.com/problems/squares-of-a-sorted-array/description/)
+暴力破解:
+1. 先集体平方后, 再直接快排
+
+双指针:
+1. 核心的规律是平方两端必然是排序最后的值, 无论+/-的绝对值平方都很大;
+2. 所以只要用指针比较双端的值, 从而确认谁排再后面就可以了
+3. 用第三个指针来指向一个新的数组, 从而插入, 每次-=1
