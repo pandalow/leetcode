@@ -1,3 +1,23 @@
+第一次复习：学完后 20 分钟内
+第二次复习：学完后 1 天
+第三次复习：学完后 2-3 天
+第四次复习：学完后 1 周
+第五次复习：学完后 1 个月
+
+
+### Array
+
+[Binary Search-704](https://leetcode.com/problems/binary-search/description/)
+递归法: 
+1. 递归终止条件缺失: 注意 left > right 为递归终止条件;
+2. len(nums)- 1 为 实际的pointer
+3. python 整除法为 //
+循环法:
+1. `while(left <= right)` 用来检查唯一元素的情况
+
+
+前提条件: 
+有序数组 -  无重复元素
 
 
 
@@ -69,3 +89,8 @@ https://www.youtube.com/watch?v=V5-7GzOfADQ
 https://www.youtube.com/watch?v=wcIRPqTR3Kc&t=2s
 
 [98](https://leetcode.com/problems/validate-binary-search-tree/description/)
+
+下面这道比较绕, 需要分治递归~, 多练练吧
+[108](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/submissions/1773891898/)
+[109](https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/submissions/1773913758/)
+这个有一个更好的快慢指针解法;
