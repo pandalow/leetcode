@@ -46,4 +46,4 @@ class Solution(object):
             return -1
 ```
 
-2. 
+2. [需要之后着重理解KMP](https://programmercarl.com/0028.%E5%AE%9E%E7%8E%B0strStr.html#%E6%80%9D%E8%B7%AF)
