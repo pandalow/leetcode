@@ -20,7 +20,7 @@ def run():
     
 ```
 
-[28]()
+[28](https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/)
 1. BF 算法
 ```python
 class Solution(object):
