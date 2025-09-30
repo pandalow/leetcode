@@ -23,4 +23,35 @@
     * 前序遍历:是中左右，每次先处理的是中间节点，那么先将根节点放入栈中，然后将右孩子加入栈，再加入左孩子。
         *  循环为栈有节点
     * 后序便利: 左右中, 颠倒前序遍历顺序, 再翻转最后数组
-    
+    * 中序遍历: 模拟遍历的方式, 用left和right的指针去替换直接当前的遍历的节点
+        * curr = curr.left -->> curr = curr.right
+
+
+6. 层序遍历:
+```python
+class Solution:
+    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        if not root:
+            return []
+        queue = collections.deque([root])
+        result = []
+        while queue:
+            level = []
+            for _ in range(len(queue)):
+                cur = queue.popleft()
+                level.append(cur.val)
+                if cur.left:
+                    queue.append(cur.left)
+                if cur.right:
+                    queue.append(cur.right)
+            result.append(level)
+        return result
+```
+
+
+[107](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/)
+* 思路是先层序遍历, 然后反转数组
+
+[199](https://leetcode.com/problems/binary-tree-right-side-view/submissions/1787640997/)
+* 思路为提取每层的最后一个值
+
