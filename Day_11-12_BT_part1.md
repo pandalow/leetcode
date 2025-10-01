@@ -55,3 +55,18 @@ class Solution:
 [199](https://leetcode.com/problems/binary-tree-right-side-view/submissions/1787640997/)
 * 思路为提取每层的最后一个值
 
+[429. N-ary Tree Level Order Traversal](https://leetcode.com/problems/n-ary-tree-level-order-traversal/description/)
+
+[637. Average of Levels in Binary Tree](https://leetcode.com/problems/average-of-levels-in-binary-tree/description/)
+
+[515. Find Largest Value in Each Tree Row](https://leetcode.com/problems/find-largest-value-in-each-tree-row/submissions/1788370682/)
+
+[116. Populating Next Right Pointers in Each Node](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/description/)
+这道题的核心是用一个prev来暂存已经遍历过的的节点
+
+[117. Populating Next Right Pointers in Each Node II](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/submissions/1788525186/)
+
+[104. Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
+
+[111. Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/)
+出现无左右节点时, 直接刹车就可以了.
