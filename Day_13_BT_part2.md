@@ -43,3 +43,25 @@ class Solution(object):
 
 [572. Subtree of Another Tree](https://leetcode.com/problems/subtree-of-another-tree/)
 1.  这个需要用一个dfs先去遍历主树, 然后在每个节点去判断是不是相同的, 如果有任何一个相同的情况(or), 就返回结果True
+
+
+深度 vs 高度
+
+[104. Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/submissions/1790125404/)
+* 返回为表示当前的高度, 最底部为0, 即节点为null
+* *最重要的部分*: 每一层递归获得到上一个返回的高度, 所以在整个最大值结果上需要 +1
+    * 即表示当前的往下的最大深度
+    * 容易绕的地方: 如何处理递归的返回值, 两个子树的最大值+1. +1就是当前层数计算在内
+    * 这样就会在下一层返回的时候实际在累加层数了
+
+层序挺好理解的, 模板化套一下就行了
+
+[559. Maximum Depth of N-ary Tree](https://leetcode.com/problems/maximum-depth-of-n-ary-tree/submissions/1790130179/)
+* N叉树: 每一层用一个maxDepth来获得从当前往下的最大深度
+
+[111. Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/description/)
+* 题目中要求为叶子节点的最小深度, 所以child 必须是 null;
+* 因此返回值上要考虑三种情况"
+    * 左为空 - > 返回右边的深度;
+    * 右为空 - > 返回左边的深度;
+    * 都不为空 - >  返回双边的深度的最小值;
