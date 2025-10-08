@@ -200,3 +200,54 @@ class Solution {
 * 用一个stack来管理回溯的过程;
 * 只需要替换下叶子节点返回值变为组成一个stack, 并向最终集合中添加就可以了.
 * 需要便遍历所有可能性, 不要立即返回, 所以不加任何return
+
+
+[106. Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/description/)
+```python
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution(object):
+    def buildTree(self, inorder, postorder):
+        """
+        :type inorder: List[int]
+        :type postorder: List[int]
+        :rtype: Optional[TreeNode]
+        """
+    
+        def traverse(inorder, postorder):
+            if len(postorder) == 0: return None
+            root_value = postorder[-1]
+            root = TreeNode(val = root_value)
+
+            if len(postorder) == 1: return root
+
+            index = 0
+            for i in range(len(inorder)):
+                if inorder[i] == root_value:
+                    index = i
+                    break
+            
+            left_inorder = inorder[:index]
+            right_inorder = inorder[index+1:]
+
+            postorder = postorder[:-1]
+            left_postorder = postorder[:len(left_inorder)]
+            right_postorder = postorder[len(left_inorder):]
+            root.left = traverse(left_inorder, left_postorder)
+            root.right = traverse(right_inorder, right_postorder)
+
+            return root
+
+        return traverse(inorder, postorder)
+```
+
+第一步：如果数组大小为零的话，说明是空节点了。
+第二步：如果不为空，那么取后序数组最后一个元素作为节点元素。
+第三步：找到后序数组最后一个元素在中序数组的位置，作为切割点
+第四步：切割中序数组，切成中序左数组和中序右数组 （顺序别搞反了，一定是先切中序数组）
+第五步：切割后序数组，切成后序左数组和后序右数组
+第六步：递归处理左区间和右区间
