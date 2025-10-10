@@ -127,4 +127,39 @@ class Solution(object):
     * 用了lambda函数: lambda x:x[1], 去这个tuple的index=1 的值为排序依据
     * results.items() 会返回一个[(),()]的tuple的list
 
+[236. Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/)
 
+```python
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution(object):
+    def lowestCommonAncestor(self, root, p, q):
+        """
+        :type root: TreeNode
+        :type p: TreeNode
+        :type q: TreeNode
+        :rtype: TreeNode
+        """
+        def traverse(node, p, q):
+            if node is None: return node
+            if node.val == p.val or node.val== q.val: return node
+
+            left = traverse(node.left, p, q)
+            right = traverse(node.right,p,q)
+
+            if left and right: return node
+            elif left and not right: return left
+            elif not left and right: return right
+            else: return None
+        
+        return traverse(root, p, q)
+```
+
+1. 求最近公共祖先, 需要使用postorder, 即从下往上处理.
+2. 如果命中左边即返回左节点: 标记命中; 如果命中右边即返回右边, 即返回右边, 标记命中
+3. 两边命中, 因为中序遍历, 所以返回节点为最近公共祖先.
