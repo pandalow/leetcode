@@ -33,7 +33,7 @@ class Solution(object):
     * 在大于val时， 向左找到所有的在区间的节点
 3. 遍历后， 用root的左右子树接住新的子树
 
-
+[108. Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)
 ```python
 class Solution(object):
     def sortedArrayToBST(self, nums):
@@ -56,3 +56,35 @@ class Solution(object):
 3. 左闭右闭的方式渐进的进行递归。
 4. 如果数组为偶数， 那么中间节点可以是+1/-1， 这决定了树的样子， 都可以接受， 但都是平衡的树， 因为高度相差不过1
 
+
+[538. Convert BST to Greater Tree](https://leetcode.com/problems/convert-bst-to-greater-tree/description/)
+```python
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution(object):
+    def convertBST(self, root):
+        """
+        :type root: Optional[TreeNode]
+        :rtype: Optional[TreeNode]
+        """
+        self.prev = 0
+
+        def traverse(node):
+            if node is None: return
+            traverse(node.right)
+            node.val = node.val + self.prev
+            self.prev = node.val
+            traverse(node.left)
+            return 
+        
+        traverse(root)
+        return root
+```
+
+1. 如果是有序数组的解法，双指针： 一个指针记录累加值， 一个记录当前值， 逆序遍历
+2. 树结构遍历逆序就是inorder下， 先从right开始（实际顺序为 right->node->left）
+3. 返回为节点为空， 就返回
