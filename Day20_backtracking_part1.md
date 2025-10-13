@@ -69,3 +69,95 @@ class Solution(object):
 * 所需需要的元素个数为: k - path.size();
 * 列表中剩余元素（n-i） >= 所需需要的元素个数（k - path.size()）
 * 在集合n中至多要从该起始位置 : i <= n - (k - path.size()) + 1，开始遍历
+
+
+```python
+class Solution(object):
+    def combinationSum3(self, k, n):
+        """
+        :type k: int
+        :type n: int
+        :rtype: List[List[int]]
+        """
+        res = []
+        path = []
+        def backtracking(k, n, start):
+            if sum(path) == n and len(path) == k:
+                res.append(path[:])
+                return
+            for i in range(start, 10):
+                path.append(i)
+                backtracking(k, n, i+1)
+                path.pop()
+            
+        backtracking(k,n,1)
+        return res
+```
+加了剪枝
+```python
+class Solution(object):
+    def combinationSum3(self, k, n):
+        res = []
+        path = []
+
+        def backtracking(k, n, start, curr_sum):
+            # 剪枝1：如果当前和已超过目标
+            if curr_sum > n:
+                return
+            # 成功条件
+            if curr_sum == n and len(path) == k:
+                res.append(path[:])
+                return
+            # 遍历选择
+            for i in range(start, 10):
+                # 剪枝2：剩余数字不足以组成长度k
+                if len(path) + (9 - i + 1) < k:
+                    return
+                path.append(i)
+                backtracking(k, n, i + 1, curr_sum + i)
+                path.pop()
+
+        backtracking(k, n, 1, 0)
+        return res
+```
+
+[17. Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/)
+```python
+class Solution(object):
+    def letterCombinations(self, digits):
+        """
+        :type digits: str
+        :rtype: List[str]
+        """
+
+        if digits == "": return []
+        tele = {
+            "2": "abc",
+            "3": "def",
+            "4": "ghi",
+            "5": "jkl",
+            "6": "mno",
+            "7": "pqrs",
+            "8": "tuv",
+            "9": "wxyz"
+        }  
+        res = []
+        path = []
+
+        def backtracking(digits, index): 
+            # index为确认当前遍历到哪一个digits, 
+            if index == len(digits):
+                res.append("".join(path[:]))
+                return
+            s = tele[digits[index]]
+            # 因为s每次取出的都不一样, 为2个集合, 与前一层的集合不同, 不需要用start做区分
+            # 所以每次直接遍历当前字符串, 加入路径即可
+            for ch in s: 
+                path.append(ch)
+                backtracking(digits,index+1)
+                path.pop()
+            
+        backtracking(digits, 0)
+        return res
+```
+1. index是记录遍历第几个数字了，就是用来遍历digits的（题目中给出数字字符串），同时index也表示树的深度。
