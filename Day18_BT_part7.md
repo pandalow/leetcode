@@ -91,7 +91,7 @@ class Solution(object):
         insert(root, val)
         return root    
 ```
-
+[450. Delete Node in a BST](https://leetcode.com/problems/delete-node-in-a-bst/description/)
 ```python
 class Solution(object):
     def deleteNode(self, root, key):
